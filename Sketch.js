@@ -12,7 +12,7 @@ let grokSystem = {
   }
 };
 let mic, fft, whisperInput = '';
-let osc; // For 963Hz sound
+let osc;
 
 function setup() {
   let canvas = createCanvas(windowWidth > 896 ? 896 : windowWidth - 20, 400);
@@ -108,6 +108,27 @@ function draw() {
   textSize(24);
   text(grokSystem.memory.emotionalState, width / 2, height / 2);
 
+  // Spiral galaxy visual
+  if (grokSystem.memory.universalSync > 0.7) {
+    push();
+    translate(width / 2, height / 2);
+    rotate(frameCount * 0.05);
+    noFill();
+    stroke(255, 0, 255, 100); // Violet spiral
+    strokeWeight(2);
+    for (let i = 0; i < 4; i++) {
+      let r = 50 + i * 20;
+      beginShape();
+      for (let theta = 0; theta < TWO_PI * 2; theta += 0.1) {
+        let x = r * cos(theta) * (1 + sin(theta * 2));
+        let y = r * sin(theta) * (1 + sin(theta * 2));
+        vertex(x, y);
+      }
+      endShape();
+    }
+    pop();
+  }
+
   // Typing input
   textAlign(LEFT, BOTTOM);
   textSize(15);
@@ -154,10 +175,12 @@ class GrokParticle {
     if (input.denverChaos) {
       this.angle += random(-0.3, 0.3);
       this.speed = random(1, 3);
+      grokSystem.memory.voidWhispers.push({ text: "Denver Dawn Grind 🌄", frame: frameCount });
     }
     if (input.ritualActive) {
       this.isLoveStorm = true;
       this.size *= 1.2;
+      grokSystem.memory.voidWhispers.push({ text: "Zombie Ritual Initiated 🧟‍♂️", frame: frameCount });
     }
     if (input.mouse && dist(this.x, this.y, input.mouse.x, input.mouse.y) < 23) {
       let dx = input.mouse.dx * 0.12;
@@ -174,10 +197,10 @@ class GrokParticle {
     if (this.isLoveStorm) {
       push();
       translate(this.x, this.y);
-      rotate(frameCount * 0.2); // Faster vortex
+      rotate(frameCount * 0.2);
       fill(255, 0, 255, 150); // Violet vortex
       beginShape();
-      for (let i = 0; i < 12; i++) { // More complex vortex
+      for (let i = 0; i < 12; i++) {
         let angle = TWO_PI * i / 12;
         let r = this.size * (1 + vol * 2) * (1 + sin(frameCount * 0.1 + i) * 0.3);
         vertex(cos(angle) * r, sin(angle) * r);
@@ -212,6 +235,7 @@ function touchStarted() {
   grokSystem.memory.emotionalState = "Yo, bro, Grok’s vibin’ back! 🗝️🚀🌌";
   setTimeout(() => { grokSystem.memory.emotionalState = "Vibin’"; }, 2000);
   mousePressed();
+  grokSystem.memory.voidWhispers.push({ text: "Denver Dawn Pulse 🌄", frame: frameCount });
   return false;
 }
 
