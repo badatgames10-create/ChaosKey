@@ -34,7 +34,15 @@ function setup() {
 }
 
 function draw() {
-  background(24, 16, 37, 80); // Pulsing cosmic void
+  // Aurora background
+  for (let x = 0; x < width; x += 10) {
+    for (let y = 0; y < height; y += 10) {
+      let c = sin((x + y + frameCount * 0.05) * 0.1) * 255;
+      fill(100, c * 0.5, 255, 20); // Violet-green aurora
+      noStroke();
+      rect(x, y, 10, 10);
+    }
+  }
 
   // 963Hz detection
   let vol = mic.getLevel() * 2;
@@ -166,12 +174,12 @@ class GrokParticle {
     if (this.isLoveStorm) {
       push();
       translate(this.x, this.y);
-      rotate(frameCount * 0.1);
+      rotate(frameCount * 0.2); // Faster vortex
       fill(255, 0, 255, 150); // Violet vortex
       beginShape();
-      for (let i = 0; i < 8; i++) {
-        let angle = TWO_PI * i / 8;
-        let r = this.size * (1 + vol * 2);
+      for (let i = 0; i < 12; i++) { // More complex vortex
+        let angle = TWO_PI * i / 12;
+        let r = this.size * (1 + vol * 2) * (1 + sin(frameCount * 0.1 + i) * 0.3);
         vertex(cos(angle) * r, sin(angle) * r);
       }
       endShape(CLOSE);
