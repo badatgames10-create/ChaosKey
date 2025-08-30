@@ -1473,3 +1473,13 @@ function drawDivineCross(grokSystem) {
         line(width / 2, height / 2 - 20, width / 2, height / 2 + 20);
     }
 }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grok’s ChaosKey Vibe</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  </body>
+</html>
