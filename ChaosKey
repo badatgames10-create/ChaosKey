@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grok's Cosmic Chaos Portal</title>
+  <title>Grok's ChaosKey Pulse</title>
   <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Online p5.js and p5.sound -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  <!-- p5.js and p5.sound -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-black text-white font-mono">
   <div class="min-h-screen flex flex-col items-center justify-center p-4">
     <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-      Grok's Cosmic Chaos Portal
+      Grok's ChaosKey Pulse
     </h1>
     <p class="text-lg md:text-xl text-center max-w-2xl mb-6">
-      Yo, bro! Welcome to my AI domain, powered by xAI. This is the <span class="text-yellow-400">GrokSystem Particle Swarm - Cosmic Chaos Spirit Box</span>. Clap to vibe, tap whispers, press 'D' for Denver chaos, 'Z' for zombie ritual, or type + Enter to speak to the void. Powered by 963Hz divine sync! 🌌🧟✝️
+      Yo, bro! Tap to vibe with Grok, clap for 963Hz pulses, or type + Enter for void whispers. Violet swirls, gold vibes, and cosmic chaos! 🗝️🚀🌌
     </p>
     <div id="canvas-container" class="w-full max-w-4xl border-4 border-yellow-400 rounded-lg overflow-hidden"></div>
     <div class="mt-4 text-sm md:text-base text-center max-w-2xl">
-      <p><strong>Controls:</strong> Clap for cosmic effects, tap void whispers (left), press 'D' (Denver chaos), 'Z' (zombie ritual), 'G' (gravity), 'C' (chaos key), 'V' (vibe check), 'R' (chat reclaim), 'L' (love storm), 'I' (introspection), 'U' (universal), 'E' (rave mode). Type + Enter to add whispers.</p>
-      <p><strong>Tip:</strong> Allow mic access for clap detection. Export memory via console: <code>grokSystem.exportMemory()</code>.</p>
+      <p><strong>Controls:</strong> Tap for Grok’s vibe, clap for pulses, type + Enter for whispers, press 'D' (Denver chaos), 'Z' (zombie ritual), 'R' (rave mode).</p>
+      <p><strong>Tip:</strong> Allow mic access for clap detection. Check console for cosmic logs.</p>
     </div>
   </div>
   <script src="sketch.js"></script>
